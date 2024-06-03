@@ -1,0 +1,22 @@
+name: "pre_faster"
+backend: "python"
+max_batch_size: 8
+input[
+ {
+    name: "INPUT_PRE_FASTER"
+    data_type: TYPE_FP32
+    dims: [3,608,608]
+ }
+]
+
+
+output [
+  {
+    name: "OUTPUT_PRE_FASTER"
+    data_type: TYPE_FP32
+    dims: [3,608,608]
+  }
+]
+
+
+instance_group [{ kind: KIND_GPU }]

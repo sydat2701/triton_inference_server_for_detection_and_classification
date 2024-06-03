@@ -1,0 +1,21 @@
+name: "resnet"
+platform: "onnxruntime_onnx"
+max_batch_size : 4
+input [
+  {
+    name: "input_res"
+    data_type: TYPE_FP32
+    format: FORMAT_NCHW
+    dims: [ 3, 224, 224 ]
+    reshape { shape: [ 3, 224, 224 ] }
+  }
+]
+output [
+  {
+    name: "output_res"
+    data_type: TYPE_FP32
+    dims: [ 5 ]
+    reshape { shape: [ 5 ] }
+    label_filename: "resnet_labels.txt"
+  }
+]
